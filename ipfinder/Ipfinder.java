@@ -43,6 +43,16 @@ public class Ipfinder extends JFrame implements ActionListener
     }
     public void actionPerformed(ActionEvent ae)
     {
+        String url= tf.getText();
+        try
+        {
+            InetAddress ia=InetAddress.getByName(url);//determines ip address of host from given host name. if null, the IP address of loopback address is returned.
+            String ip=ia.getHostAddress();
+            JOptionPane.showMessageDialog(this,ip);
+        }catch(UnknownHostException e1)
+        {
+            JOptionPane.showMessageDialog(this,e1.toString());
+        }
     }
     
 }
